@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4qhf3lohhhb1"]
+
+[ext_resource type="Script" uid="uid://dm6pmrqsktr4a" path="res://States/InGame/ingame.gd" id="1_b7vyf"]
+
+[node name="InGame" type="Node"]
+script = ExtResource("1_b7vyf")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Tilemaps" type="Node2D" parent="World"]
+
+[node name="Block" type="TileMapLayer" parent="World/Tilemaps"]
+
+[node name="Background" type="TileMapLayer" parent="World/Tilemaps"]

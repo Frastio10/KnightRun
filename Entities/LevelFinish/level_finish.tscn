@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://8e7dm8ikkm7y"]
+
+[ext_resource type="Script" uid="uid://bunxmla3hv7g5" path="res://Entities/LevelFinish/level_finish.gd" id="1_gae64"]
+
+[node name="LevelFinish" type="Area2D"]
+script = ExtResource("1_gae64")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
