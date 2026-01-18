@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bftbhambpt2fx"
-path="res://.godot/imported/coin.png-a338f87f1ddf05f14ee5e50fea277b8b.ctex"
+uid="uid://b0fc245roav8t"
+path="res://.godot/imported/green_slime.png-5c49a8c45bc8b6965f6eca02eb4e03e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/sprites/coin.png"
-dest_files=["res://.godot/imported/coin.png-a338f87f1ddf05f14ee5e50fea277b8b.ctex"]
+source_file="res://Entities/Monsters/GreenSlime/green_slime.png"
+dest_files=["res://.godot/imported/green_slime.png-5c49a8c45bc8b6965f6eca02eb4e03e4.ctex"]
 
 [params]
 

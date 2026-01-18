@@ -1,6 +1,5 @@
 extends Node
 
-
 enum State {
 	INGAME,
 	MAIN_MENU
@@ -15,6 +14,11 @@ var _current_scene_root: Node
 
 var current_level := 1
 var current_scene := State.MAIN_MENU
+
+var player_scores := {}
+
+func add_score(level: int, data: Dictionary) -> void:
+	player_scores[str(level)] = data
 
 func set_level(level: int) -> void:
 	current_level = level

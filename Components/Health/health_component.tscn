@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://t2dj1f0q5gnv"]
+
+[ext_resource type="Script" uid="uid://dcgibcy5cpvwx" path="res://Components/Health/health_component.gd" id="1_2q3x2"]
+
+[node name="HealthComponent" type="Node"]
+script = ExtResource("1_2q3x2")
+
+[node name="RegenTimer" type="Timer" parent="."]
+autostart = true

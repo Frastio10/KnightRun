@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://8k4pd3jep2xq"]
+[gd_scene load_steps=14 format=4 uid="uid://8k4pd3jep2xq"]
 
 [ext_resource type="PackedScene" uid="uid://b2y0ibjk4xpk3" path="res://Levels/BaseLevel/base_level.tscn" id="1_honc6"]
 [ext_resource type="Script" uid="uid://bwwmy2cet57ey" path="res://Levels/Level1/level.gd" id="2_a78uy"]
 [ext_resource type="Texture2D" uid="uid://ced4ml5iw4hl8" path="res://Resources/sprites/world_tileset.png" id="3_5wa4r"]
 [ext_resource type="PackedScene" uid="uid://8e7dm8ikkm7y" path="res://Entities/LevelFinish/level_finish.tscn" id="5_5wa4r"]
 [ext_resource type="Texture2D" uid="uid://f6gyku8o2cxq" path="res://icon.svg" id="6_hmipq"]
+[ext_resource type="PackedScene" uid="uid://cuoutmuuijxnb" path="res://Entities/Collectibles/Coin/coin.tscn" id="7_5ei3o"]
 [ext_resource type="PackedScene" uid="uid://cvpa3c2iobxqg" path="res://Entities/PlayerSpawner/player_spawner.tscn" id="7_hmipq"]
+[ext_resource type="PackedScene" uid="uid://b3df43glxhbd5" path="res://Entities/Monsters/GreenSlime/green_slime.tscn" id="8_5ei3o"]
+[ext_resource type="PackedScene" uid="uid://dnc4iql77koi2" path="res://Components/Hitbox/hitbox_component.tscn" id="9_1qvrm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mey31"]
 texture = ExtResource("3_5wa4r")
@@ -87,7 +90,7 @@ texture = ExtResource("3_5wa4r")
 10:2/0 = 0
 10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.115196, 8, -6.115196, 8, 0.8992939, -8, 0.8992939)
 11:2/0 = 0
-11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -6.4749136, 8, -0.35971642, -8, -1.4388695)
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.115196, 8, -8, 8, -1.978445, -8, 0)
 11:2/0/physics_layer_0/polygon_0/one_way = true
 0:3/0 = 0
 1:3/0 = 0
@@ -194,6 +197,8 @@ sources/0 = SubResource("TileSetAtlasSource_mey31")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ei3o"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b0533"]
+
 [node name="BaseLevel" instance=ExtResource("1_honc6")]
 script = ExtResource("2_a78uy")
 
@@ -222,3 +227,16 @@ shape = SubResource("RectangleShape2D_5ei3o")
 
 [node name="PlayerSpawner" parent="." index="3" instance=ExtResource("7_hmipq")]
 position = Vector2(191, 59)
+
+[node name="Collectible" parent="." index="4" instance=ExtResource("7_5ei3o")]
+position = Vector2(89, 170)
+
+[node name="GreenSlime" parent="." index="5" instance=ExtResource("8_5ei3o")]
+position = Vector2(199, 112)
+
+[node name="HitboxComponent" parent="." index="6" instance=ExtResource("9_1qvrm")]
+position = Vector2(0, 287)
+damage = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("WorldBoundaryShape2D_b0533")
