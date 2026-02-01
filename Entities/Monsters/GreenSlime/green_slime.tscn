@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3df43glxhbd5"]
+[gd_scene load_steps=17 format=3 uid="uid://b3df43glxhbd5"]
 
 [ext_resource type="Script" uid="uid://ce0dehuyg38ae" path="res://Entities/Monsters/GreenSlime/green_slime.gd" id="1_sqad5"]
 [ext_resource type="Texture2D" uid="uid://b0fc245roav8t" path="res://Entities/Monsters/GreenSlime/green_slime.png" id="1_u0bvh"]
 [ext_resource type="PackedScene" uid="uid://dnc4iql77koi2" path="res://Components/Hitbox/hitbox_component.tscn" id="2_prr1l"]
+[ext_resource type="PackedScene" uid="uid://birhaqmxh7gek" path="res://Components/AI/EnemyChase/enemy_chase.tscn" id="4_h75s5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqe0o"]
 atlas = ExtResource("1_u0bvh")
@@ -88,6 +89,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0bvh"]
 size = Vector2(10, 12)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pil15"]
+radius = 55.0
+
 [node name="GreenSlime" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_sqad5")
@@ -110,3 +114,19 @@ damage = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_u0bvh")
+
+[node name="EnemyChase" parent="." node_paths=PackedStringArray("character", "sprite") instance=ExtResource("4_h75s5")]
+collision_mask = 2
+character = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyChase"]
+shape = SubResource("CircleShape2D_pil15")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(-8, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(8, 0)

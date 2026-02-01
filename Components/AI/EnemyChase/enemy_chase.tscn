@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://birhaqmxh7gek"]
+
+[ext_resource type="Script" uid="uid://dg70i6nh8tdwo" path="res://Components/AI/EnemyChase/enemy_chase.gd" id="1_vn3uw"]
+
+[node name="EnemyChase" type="Area2D"]
+script = ExtResource("1_vn3uw")
